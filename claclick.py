@@ -12,8 +12,8 @@ def index():
 	insert_data_in_db(data)
 	print 'LOG: ' + str(coleta_data_of_db())
 	
-	#return redirect('https://www.facebook.com/ClaClick-272681776174594')
-	return redirect('/n')
+	return redirect('https://www.facebook.com/ClaClick-272681776174594')
+	#return redirect('/n')
 	#return str(coleta_data_of_db())
 
 #	return 'feito'
