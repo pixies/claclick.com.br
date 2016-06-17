@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Origem</th>
+      <th>Região</th>
+      <th>Navegador</th>
+      <th>Sistema Operacional</th>
+      <th>Data</th>
+      <th>Hora</th>
+    </tr>
+  </thead>
+  <tbody>
+    	{% for reg in registros %}
+    <tr>
+
+      		<td>{{ reg.remote_addr }}</td>
+			<td>{{ reg.language }}</td>
+			<td>{{ reg.user_agent }}</td>
+			<td>{{ reg.method }}</td>
+			<td>{{ reg.date }}</td>
+			<td>{{ reg.time }}</td>
+    	
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
