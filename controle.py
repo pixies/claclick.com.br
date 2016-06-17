@@ -1,15 +1,14 @@
 from flask import request, Response
 from datetime import datetime
-#import json
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb://localhost:27017/monitor2_db')
+
 db = client.monitor2_db
 registro = db.registro
 
 def insert_data_in_db(data):
     registro_id = registro.insert(data)
-
 
 def trata_headers():
     res = Response(request).response.environ
@@ -28,13 +27,8 @@ def trata_headers():
         'date': date,
         'time': time,
     }
-    #return json.dumps(response_dic, sort_keys=True, indent=2, separators=(',', ': '))
     return response_dic
 
-
 def coleta_data_of_db():
-    lista = []
-    for item in registro.find():
-        lista.append(item)
-    return str(lista[::-1])
-        
+    return registro.find()
+    
